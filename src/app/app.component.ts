@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'JavaMini';
+  c = 3;
+  t = [
+    1
+    , 2
+    , 3
+  ];
 }

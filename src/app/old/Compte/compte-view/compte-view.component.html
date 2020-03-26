@@ -1,0 +1,76 @@
+<div class="row " *ngIf="compte">
+    <div class="col-md-3 sideNav">
+        <!-- <img [src]="clientImgUrl?clientImgUrl : '../../../../assets/img/blank-profile-picture-973460_640.png'"
+            class="Logo"> -->
+        <div class="De">
+            <div class="Desc">
+                <div *ngIf="compte.getCode()">
+                    <span>Compte Code: </span>
+                    <span>
+                        {{ compte.getCode() }}
+
+                    </span>
+
+                </div>
+                <div *ngIf="compte.getProprietaire().getNom()">
+                    <span>Nom: </span>
+                    <span>
+                        {{ compte.getProprietaire().getNom() | uppercase }}
+
+                    </span>
+                </div>
+
+                <div *ngIf="compte.getProprietaire().getPrenom()">
+                    <span>Prenom:</span>
+                    <span>
+                        {{ compte.getProprietaire().getPrenom() | uppercase }}
+                    </span>
+                </div>
+                <div>
+                    <button>
+                        Verser
+                    </button>
+                </div>
+                <div>
+                    <button>
+                        Retirer
+                    </button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 ">
+        <mat-tab-group>
+            <mat-tab label="Compte" *ngIf="compte">
+                <div class="card-columns">
+
+                    <div *ngIf="compte.getSolde()">
+                        <h4>
+                            Solde:
+                        </h4>
+                        <h5>
+                            {{ compte.getSolde() }}
+                        </h5>
+                    </div>
+                    <div *ngIf="compte.getDecouverte()">
+                        <h4>
+                            Decouvert:
+                        </h4>
+                        <h5>
+                            {{ compte.getDecouverte() }}
+                        </h5>
+                    </div>
+
+                </div>
+            </mat-tab>
+            <mat-tab label="Client" *ngIf="compte.getProprietaire();">
+
+                <app-client-element *ngIf="compte.getProprietaire();" [client]="compte.getProprietaire();">
+                </app-client-element>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+</div>

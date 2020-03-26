@@ -1,0 +1,19 @@
+.sideNav {
+    background-color: #1e225ce6;
+    color: cornsilk;
+    min-height: 300px;
+}
+
+.Desc span {
+    color: white;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Logo {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}   

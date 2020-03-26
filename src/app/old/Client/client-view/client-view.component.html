@@ -1,0 +1,64 @@
+<div class="row " *ngIf="client">
+    <div class="col-md-3 sideNav">
+        <img [src]="clientImgUrl?clientImgUrl : '../../../../assets/img/blank-profile-picture-973460_640.png'"
+            class="Logo">
+        <div class="De">
+            <div class="Desc">
+                <div *ngIf="client.nom">
+                    <span>Nom: </span>
+                    <span>
+                        {{ client.nom | uppercase }}
+
+                    </span>
+                </div>
+
+                <div *ngIf="client.prenom">
+                    <span>Prenom:</span>
+                    <span>
+                        {{ client.prenom | uppercase }}
+                    </span>
+                </div>
+
+                <div *ngIf="client.email">
+                    <span>
+                        Email:
+                    </span>
+                    <span>
+                        {{ client.email | uppercase }}
+                    </span>
+                </div>
+
+                <div *ngIf="client.gsm">
+                    <span>
+                        GSM:
+                    </span>
+                    <span>
+                        {{ client.gsm }}
+                    </span>
+                </div>
+
+                <div *ngIf="client.grade">
+                    <span>
+                        Grade:
+                    </span>
+                    <span>
+                        {{ client.grade| uppercase }}
+                    </span>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 ">
+        <mat-tab-group>
+            <mat-tab label="Club" *ngIf="client.clubs">
+                <div class="card-columns">
+                    <app-club-modal *ngFor="let compte of client.comptes" [compte]="compte">
+                    </app-club-modal>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+</div>
